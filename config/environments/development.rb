@@ -50,5 +50,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.action_cable.disable_request_forgery_protection = true
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  config.hosts << "c80bd249.ngrok.io"
+  config.hosts << "9949bf1f.ngrok.io"
 end
