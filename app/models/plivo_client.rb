@@ -1,4 +1,5 @@
 class PlivoClient
+    require 'dotenv/load'
     require "plivo"
     include Plivo
 
@@ -18,15 +19,15 @@ class PlivoClient
     end
 
     def auth_id
-        Rails.application.credentials.plivo[:auth_id]
+        ENV["PLIVO_AUTH_ID"]
     end
 
     def auth_token
-        Rails.application.credentials.plivo[:auth_token]
+        ENV["PLIVO_AUTH_TOKEN"]  
     end
 
     def phone_number
-        Rails.application.credentials.plivo[:phone_number]
+        ENV["PLIVO_PHONE_NUMBER"]
     end
 
 end
