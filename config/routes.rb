@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :conversations, only: [:index, :create]
+  resources :conversations
+  get '/conversations/logs', to: 'conversations#plivo_logs'
   resources :messages, only: [:create]
 
   namespace :webhooks do

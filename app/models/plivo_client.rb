@@ -1,6 +1,7 @@
 class PlivoClient
     require 'dotenv/load'
     require "plivo"
+    require 'json'
     include Plivo
 
     attr_reader :client
@@ -16,6 +17,15 @@ class PlivoClient
             [phone],
             message
         )
+    end
+
+    def get_logs
+        messages = @client.messages.list(
+            limit: 2,
+            offset: 0,
+            to_number: '18326431415'
+        )
+
     end
 
     def auth_id

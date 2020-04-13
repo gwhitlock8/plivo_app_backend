@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-    def index
+      def index
         conversations = Conversation.all
         render json: conversations
       end
@@ -13,6 +13,15 @@ class ConversationsController < ApplicationController
           ActionCable.server.broadcast 'conversations_channel', serialized_data
           head :ok
         end
+      end
+
+      def destroy
+        conversation = Conversation.find(params[:id])
+        conversation.destroy
+      end
+
+      def plivo_logs
+        PlivoClient.new.get_logs
       end
       
       private
